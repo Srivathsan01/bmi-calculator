@@ -15,15 +15,16 @@
     "uuid": "3.3.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "analyze": "cross-env ANALYZE=true npm run build",
+    "build": "craco build",
+    "eject": "craco eject",
+    "start": "craco start",
+    "test": "craco test"
   },
   "jest": {
     "collectCoverageFrom": [
@@ -49,11 +50,14 @@
   "devDependencies": {
     "codecov.io": "^0.1.6",
     "coveralls": "^3.0.11",
+    "craco": "^0.0.3",
+    "cross-env": "^7.0.3",
     "cypress": "^3.8.3",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint-plugin-cypress": "^2.10.3",
     "gh-pages": "^2.2.0",
-    "jest-enzyme": "^7.1.2"
+    "jest-enzyme": "^7.1.2",
+    "webpack-bundle-analyzer": "^4.4.2"
   }
 }
